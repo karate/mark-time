@@ -1,13 +1,15 @@
 <script>
   export let categories;
 
-  const increment = () => {
+  const create = () => {
     let categoryName = prompt("Enter Category name");
-    categories.push({'name':categoryName, 'stamps': []})
-    categories = categories;
+    if (categoryName) {
+      categories.push({'id': categories.length, 'name':categoryName, 'stamps': []})
+      categories = categories;
+    }
   }
 </script>
 
-<button on:click={increment}>
+<button on:click={create}>
   Create Category
 </button>

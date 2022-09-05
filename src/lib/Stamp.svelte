@@ -15,6 +15,7 @@
 li {
   list-style: none;
   border-bottom: 1px solid;
-  margin-bottom: 3px;
+  margin-bottom: 5px;
+  padding-bottom: 5px;
 }
 </style>

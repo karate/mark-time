@@ -14,8 +14,8 @@
 </main>
 
 <style>
-main .categories {
-  display: flex;
-  flex-wrap: wrap;
-}
+  main .categories {
+    display: flex;
+    flex-wrap: wrap;
+  }
 </style>
