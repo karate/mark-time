@@ -6,9 +6,16 @@
 
 <main>
   <CreateCategoryButton bind:categories={categories}/>
-  {#each categories as category}
-    <Category bind:category={category} bind:categories={categories} />
-  {/each}
+  <div class="categories">
+    {#each categories as category}
+      <Category bind:category={category} bind:categories={categories} />
+    {/each}
+  </div>
 </main>
 
-<style></style>
+<style>
+main .categories {
+  display: flex;
+  flex-wrap: wrap;
+}
+</style>

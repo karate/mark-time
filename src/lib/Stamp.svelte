@@ -10,3 +10,11 @@
 </script>
 
 <li on:click={() => remove(stamp.id)}>{stamp.timestamp}</li>
+
+<style>
+li {
+  list-style: none;
+  border-bottom: 1px solid;
+  margin-bottom: 3px;
+}
+</style>

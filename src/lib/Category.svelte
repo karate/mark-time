@@ -14,7 +14,24 @@
 <section>
   <h3 on:click={() => remove(category.name)}>{category.name}</h3>
   <MarkButton bind:category={category} />
-  {#each category.stamps as stamp}
-    <Stamp stamp={stamp} bind:stamps={category.stamps}/> 
-  {/each}
+  <ul>
+    {#each category.stamps as stamp}
+      <Stamp stamp={stamp} bind:stamps={category.stamps}/> 
+    {/each}
+  </ul>
 </section>
+
+<style>
+  section {
+    background-color: #2196f3;
+    padding: 1rem;
+    margin: 1rem;
+    border-radius: 10px;
+  }
+
+ul {
+  margin: 20px 0;
+  padding: 0;
+}
+
+</style>
