@@ -1,13 +1,13 @@
 <script>
-  export let stamps;
+  export let category;
 
   const increment = () => {
     const now = new Date();
-    stamps.push({
-      'id': stamps.length,
+    category.stamps.push({
+      'id': category.stamps.length,
       'timestamp': now.toLocaleString()
     });
-    stamps = stamps;
+    category = category;
   }
 </script>
 
