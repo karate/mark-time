@@ -1,34 +1,44 @@
 <script>
   import Category from './lib/Category.svelte'
   import CreateCategoryButton from './lib/CreateCategoryButton.svelte'
+  import ThemeSelector from './lib/ThemeSelector.svelte'
 
   import {onMount} from "svelte";
   import { writable } from 'svelte-local-storage-store'
   import { get } from 'svelte/store'
 
-  let categories = [];
-  export const preferences = writable('categories', categories);
+  let user_pref = {
+    'theme': 'dark',
+    'categories': [],
+    'default': true,
+  };
+  export const preferences = writable('preferences', user_pref);
 
   onMount(() => {
     // Load settings from local storage
-    categories = get(preferences);
+    user_pref = get(preferences);
+    console.log('Loading preferences', user_pref);
+    user_pref.default = false;
   });
 
   $: {
     // Update local storage when data change
-    if (categories.length > 0) {
-      preferences.set(categories)
+    if (user_pref.default !== true) {
+      console.log('Saving preferences');
+      console.log(user_pref);
+      preferences.set(user_pref);
     }
   }
 </script>
 
-<main>
-  <CreateCategoryButton bind:categories={categories}/>
+<main class={user_pref.theme}>
+  <CreateCategoryButton bind:categories={user_pref.categories}/>
   <div class="categories">
-    {#each categories as category}
-      <Category bind:category={category} bind:categories={categories} />
+    {#each user_pref.categories as category}
+      <Category bind:category={category} bind:categories={user_pref.categories} />
     {/each}
   </div>
+  <ThemeSelector bind:theme={user_pref.theme}/>
 </main>
 
 <style>
@@ -48,4 +58,9 @@
     flex-wrap: wrap;
     justify-content: center;
   }
+
+  main.dark {
+    background-color: #323232;
+  }
+
 </style>

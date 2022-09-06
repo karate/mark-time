@@ -5,7 +5,6 @@
   export let categories;
 
   const remove = (id) => {
-    console.log("Deleting Category", id);
     categories = categories.filter(item => item.id !== id);
     categories = categories;
   }
@@ -29,6 +28,11 @@
     margin: 1rem;
     border-radius: 10px;
     text-align: center;
+  }
+
+  :global(main.dark section) {
+    background-color: #095895;
+    color: white;
   }
 
   h1 {
