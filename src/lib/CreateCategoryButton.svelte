@@ -13,3 +13,11 @@
 <button on:click={create}>
   Create Category
 </button>
+
+<style>
+button {
+  display: block;
+  margin: auto;
+  font-size: inherit;
+}
+</style>

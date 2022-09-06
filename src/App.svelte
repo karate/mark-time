@@ -32,8 +32,20 @@
 </main>
 
 <style>
+  :global(body, html, #app){
+    margin: 0;
+    height: 100%;
+    font-size: 16px;
+    color: #1e1e1e;
+  }
+
+  main {
+    height: 100%;
+  }
+
   main .categories {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
   }
 </style>

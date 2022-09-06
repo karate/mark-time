@@ -14,3 +14,11 @@
 <button on:click={increment}>
   Mark the time
 </button>
+
+<style>
+button {
+  width: 100%;
+  font-size: 1.3rem;
+  padding: 10px;
+}
+</style>
