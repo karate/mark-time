@@ -1,6 +1,6 @@
 <script>
-  import Category from './lib/Category.svelte'
-  import CreateCategoryButton from './lib/CreateCategoryButton.svelte'
+  import Event from './lib/Event.svelte'
+  import CreateEventButton from './lib/CreateEventButton.svelte'
   import ThemeSelector from './lib/ThemeSelector.svelte'
 
   import {onMount} from "svelte";
@@ -9,7 +9,7 @@
 
   let user_pref = {
     'theme': 'dark',
-    'categories': [],
+    'events': [],
     'default': true,
   };
   export const preferences = writable('preferences', user_pref);
@@ -32,10 +32,10 @@
 </script>
 
 <main class={user_pref.theme}>
-  <CreateCategoryButton bind:categories={user_pref.categories}/>
-  <div class="categories">
-    {#each user_pref.categories as category}
-      <Category bind:category={category} bind:categories={user_pref.categories} />
+  <CreateEventButton bind:events={user_pref.events}/>
+  <div class="events">
+    {#each user_pref.events as event}
+      <Event bind:event={event} bind:events={user_pref.events} />
     {/each}
   </div>
   <ThemeSelector bind:theme={user_pref.theme}/>
@@ -53,7 +53,7 @@
     height: 100%;
   }
 
-  main .categories {
+  main .events {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;

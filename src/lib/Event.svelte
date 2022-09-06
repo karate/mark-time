@@ -1,21 +1,21 @@
 <script>
   import MarkButton from './MarkButton.svelte'
   import Stamp from './Stamp.svelte'
-  export let category;
-  export let categories;
+  export let event;
+  export let events;
 
   const remove = (id) => {
-    categories = categories.filter(item => item.id !== id);
-    categories = categories;
+    events = events.filter(item => item.id !== id);
+    events = events;
   }
 </script>
 
 <section>
-  <h1 on:click={() => remove(category.id)}>{category.name}</h1>
-  <MarkButton bind:category={category} />
+  <h1 on:click={() => remove(event.id)}>{event.name}</h1>
+  <MarkButton bind:event={event} />
   <ul>
-    {#each category.stamps as stamp}
-      <Stamp stamp={stamp} bind:stamps={category.stamps}/> 
+    {#each event.stamps as stamp}
+      <Stamp stamp={stamp} bind:stamps={event.stamps}/>
     {/each}
   </ul>
 </section>
