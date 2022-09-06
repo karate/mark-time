@@ -1,5 +1,5 @@
 <script>
-  import MarkButton from './Button.svelte'
+  import MarkButton from './MarkButton.svelte'
   import Stamp from './Stamp.svelte'
   export let category;
   export let categories;
