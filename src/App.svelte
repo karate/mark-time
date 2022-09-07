@@ -2,6 +2,7 @@
   import Event from './lib/Event.svelte'
   import CreateEventButton from './lib/CreateEventButton.svelte'
   import ThemeSelector from './lib/ThemeSelector.svelte'
+  import ImportExport from './lib/ImportExport.svelte'
 
   import {onMount} from "svelte";
   import { writable } from 'svelte-local-storage-store'
@@ -17,15 +18,12 @@
   onMount(() => {
     // Load settings from local storage
     user_pref = get(preferences);
-    console.log('Loading preferences', user_pref);
     user_pref.default = false;
   });
 
   $: {
     // Update local storage when data change
     if (user_pref.default !== true) {
-      console.log('Saving preferences');
-      console.log(user_pref);
       preferences.set(user_pref);
     }
   }
@@ -38,7 +36,8 @@
       <Event bind:event={event} bind:events={user_pref.events} />
     {/each}
   </div>
-  <ThemeSelector bind:theme={user_pref.theme}/>
+  <ThemeSelector bind:theme={user_pref.theme} />
+  <ImportExport bind:data={user_pref} />
   <a class="github" target="_blank" href="https://github.com/karate/mark-time">Github</a>
 </main>
 
