@@ -1,8 +1,7 @@
 <script>
   import Event from './lib/Event.svelte'
   import CreateEventButton from './lib/CreateEventButton.svelte'
-  import ThemeSelector from './lib/ThemeSelector.svelte'
-  import ImportExport from './lib/ImportExport.svelte'
+  import Settings from './lib/Settings.svelte'
 
   import {onMount} from "svelte";
   import { writable } from 'svelte-local-storage-store'
@@ -36,8 +35,7 @@
       <Event bind:event={event} bind:events={user_pref.events} />
     {/each}
   </div>
-  <ThemeSelector bind:theme={user_pref.theme} />
-  <ImportExport bind:data={user_pref} />
+  <Settings bind:data={user_pref}/>
   <a class="github" target="_blank" href="https://github.com/karate/mark-time">Github</a>
 </main>
 

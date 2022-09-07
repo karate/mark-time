@@ -30,18 +30,18 @@
     }, function() {
       console.error("Unable to write to clipboard. :-(");
     });
+    dismiss();
   }
 </script>
 
 <button on:click={exportSettings}>Export</button>
-  <div class="export hidden">
-  <p>Please copy the following string</p>
-  <input type="text" />
-  <button on:click={dismiss}>Close</button>
-  <button on:click={copy}>Copy</button>
-</div>
+  <section class="export hidden">
+    <h3>Please copy the following string</h3>
+    <input type="text" />
+    <button on:click={dismiss}>Close</button>
+    <button on:click={copy}>Copy</button>
+  </section>
 <button on:click={importSettings}>Import</button>
-<div class="import hidden"></div>
 
 <style>
   button {
@@ -49,24 +49,33 @@
     left: 10px;
   }
 
-  div.hidden {
+  section.hidden {
     display: none;
   }
 
-  div {
+  section {
     position: fixed;
-    width: 300px;
-    height: 300px;
     top: 200px;
     left: calc(50% - 150px - 0.5rem);
-    background-color: #095895;
     padding: 1rem;
-    box-shadow: 0 0 12px 12px #222;
+    box-shadow: 6px 6px 9px 4px #222;
+    border: 2px solid #222;
     border-radius: 10px;
   }
 
-textarea {
-  width: 100%;
+  :global(main.light section.export) {
+    box-shadow: 6px 6px 9px 4px #303030;
+    border: 2px solid #303030;
+  }
 
-}
+  h3 {
+    font-size: 1rem;
+    font-family: sans-serif;
+    margin: 0 0 12px;
+  }
+
+  input {
+    width: calc(100% - 0.5rem);
+    margin-bottom: 20px;
+  }
 </style>

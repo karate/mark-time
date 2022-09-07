@@ -4,6 +4,7 @@
   let nextTheme;
   const themeToggle = () => {
     theme = nextTheme;
+    document.getElementById('settings').getElementsByTagName('div')[0].classList.toggle('hidden');
   }
 $: {
   nextTheme = (theme == 'dark')? 'light': 'dark';
@@ -15,9 +16,4 @@ $: {
 </button>
 
 <style>
-  button {
-    position: fixed;
-    bottom: 10px;
-    left: 10px;
-  }
 </style>

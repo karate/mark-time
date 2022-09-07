@@ -10,7 +10,7 @@
   }
 </script>
 
-<section>
+<section class="event">
   <h1 on:click={() => remove(event.id)}>{event.name}</h1>
   <MarkButton bind:event={event} />
   <ul>
@@ -21,7 +21,7 @@
 </section>
 
 <style>
-  section {
+  :global(section) {
     min-width: 250px;
     background-color: #2196f3;
     padding: 1rem;
