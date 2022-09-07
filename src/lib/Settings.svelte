@@ -4,7 +4,6 @@
   import ImportExport from './ImportExport.svelte'
 
   const toggle = () => {
-    console.log(document.getElementById('settings').getElementsByTagName('div'));
     document.getElementById('settings').getElementsByTagName('div')[0].classList.toggle('hidden');
   }
 </script>

@@ -15,13 +15,16 @@
 
   const importSettings = () => {
     let userData = prompt("Paste encoded data below");
+    closeExport();
     if (userData) {
       data = JSON.parse(userData);
+      closeSettings();
     }
   }
 
-  const dismiss = () => {
+  const closeExport = () => {
     exportElement.classList.add('hidden');
+    closeSettings();
   }
 
   const copy = () => {
@@ -30,7 +33,11 @@
     }, function() {
       console.error("Unable to write to clipboard. :-(");
     });
-    dismiss();
+    closeExport();
+  }
+
+  const closeSettings = () => {
+    document.getElementById('settings').getElementsByTagName('div')[0].classList.add('hidden');
   }
 </script>
 
@@ -38,7 +45,7 @@
   <section class="export hidden">
     <h3>Please copy the following string</h3>
     <input type="text" />
-    <button on:click={dismiss}>Close</button>
+    <button on:click={closeExport}>Close</button>
     <button on:click={copy}>Copy</button>
   </section>
 <button on:click={importSettings}>Import</button>
