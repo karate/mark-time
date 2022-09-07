@@ -39,6 +39,7 @@
     {/each}
   </div>
   <ThemeSelector bind:theme={user_pref.theme}/>
+  <a class="github" target="_blank" href="https://github.com/karate/mark-time">Github</a>
 </main>
 
 <style>
@@ -63,4 +64,13 @@
     background-color: #323232;
   }
 
+  .github {
+      position: fixed;
+      bottom: 10px;
+      right: 10px;
+  }
+
+  main.dark .github {
+    color: white;
+  }
 </style>
