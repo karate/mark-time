@@ -15,7 +15,6 @@
 
   const importSettings = () => {
     let userData = prompt("Paste encoded data below");
-    closeExport();
     if (userData) {
       data = JSON.parse(userData);
       closeSettings();
