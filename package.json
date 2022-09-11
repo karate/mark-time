@@ -14,7 +14,6 @@
     "vite": "^3.1.0"
   },
   "dependencies": {
-    "@jamesives/github-pages-deploy-action": "github:JamesIves/github-pages-deploy-action",
-    "svelte-local-storage-store": "^0.3.1"
+    "@jamesives/github-pages-deploy-action": "github:JamesIves/github-pages-deploy-action"
   }
 }

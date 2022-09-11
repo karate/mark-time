@@ -4,8 +4,6 @@
   import Settings from './lib/Settings.svelte'
 
   import {onMount} from "svelte";
-  import { writable } from 'svelte-local-storage-store'
-  import { get } from 'svelte/store'
 
   let user_pref = {
     'theme': 'light',
@@ -17,18 +15,16 @@
     user_pref.theme = 'dark';
   }
 
-  export const preferences = writable('preferences', user_pref);
-
   onMount(() => {
     // Load settings from local storage
-    user_pref = get(preferences);
+    user_pref = JSON.parse(localStorage.getItem('preferences')) || user_pref;
     user_pref.default = false;
   });
 
   $: {
     // Update local storage when data change
     if (user_pref.default !== true) {
-      preferences.set(user_pref);
+      localStorage.setItem('preferences', JSON.stringify(user_pref));
     }
   }
 </script>
