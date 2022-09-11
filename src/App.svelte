@@ -8,10 +8,15 @@
   import { get } from 'svelte/store'
 
   let user_pref = {
-    'theme': 'dark',
+    'theme': 'light',
     'events': [],
     'default': true,
   };
+
+  if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    user_pref.theme = 'dark';
+  }
+
   export const preferences = writable('preferences', user_pref);
 
   onMount(() => {
@@ -59,6 +64,10 @@
 
   main.dark {
     background-color: #323232;
+  }
+
+  main {
+    background-color: #f1f1f1;
   }
 
   .github {

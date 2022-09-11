@@ -6,9 +6,10 @@
     theme = nextTheme;
     document.getElementById('settings').getElementsByTagName('div')[0].classList.toggle('hidden');
   }
-$: {
-  nextTheme = (theme == 'dark')? 'light': 'dark';
-}
+
+  $: {
+    nextTheme = (theme == 'dark')? 'light': 'dark';
+  }
 </script>
 
 <button on:click={themeToggle}>
