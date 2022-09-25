@@ -1,6 +1,7 @@
 <script>
   export let stamp;
   export let stamps;
+  export let idx;
 
   const remove = (id) => {
     stamps = stamps.filter(item => item.id !== id);
@@ -8,7 +9,7 @@
   }
 </script>
 
-<li on:click={() => remove(stamp.id)}>{stamp.timestamp}</li>
+<li on:click={() => remove(stamp.id)}>{idx+1}) {stamp.timestamp}</li>
 
 <style>
 li {

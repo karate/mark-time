@@ -14,8 +14,8 @@
   <h1 on:click={() => remove(event.id)}>{event.name}</h1>
   <MarkButton bind:event={event} />
   <ul>
-    {#each event.stamps as stamp}
-      <Stamp stamp={stamp} bind:stamps={event.stamps}/>
+    {#each event.stamps as stamp, idx}
+      <Stamp stamp={stamp} idx={idx} bind:stamps={event.stamps}/>
     {/each}
   </ul>
 </section>
