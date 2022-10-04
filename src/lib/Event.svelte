@@ -5,6 +5,7 @@
   export let events;
 
   const remove = (id) => {
+    if (!confirm("Are you sure you want to delete this event?")) return;
     events = events.filter(item => item.id !== id);
     events = events;
   }
