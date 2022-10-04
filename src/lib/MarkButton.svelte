@@ -1,17 +1,25 @@
 <script>
   export let event;
 
-  const increment = () => {
+  let diff = null;
+
+  const mark = () => {
+    console.log(event.stamps);
     const now = new Date();
+    if (event.stamps.length >= 1) {
+      let last_stamp = new Date(event.stamps[event.stamps.length - 1].timestamp);
+      diff = now - last_stamp;
+    }
     event.stamps.push({
       'id': event.stamps.length,
-      'timestamp': now.toLocaleString()
+      'timestamp': now.getTime(),
+      'diff': diff
     });
     event = event;
   }
 </script>
 
-<button on:click={increment}>
+<button on:click={mark}>
   Mark the time
 </button>
 
