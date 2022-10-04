@@ -37,7 +37,7 @@
     {/each}
   </div>
   <Settings bind:data={user_pref}/>
-  <a class="github" target="_blank" href="https://github.com/karate/mark-time">Github</a>
+  <a class="github" target="_blank" href="https://github.com/karate/mark-time">GitHub</a>
 </main>
 
 <style>
