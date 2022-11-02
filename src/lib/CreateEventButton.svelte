@@ -4,7 +4,11 @@
   const create = () => {
     let eventName = prompt("Enter event name");
     if (eventName) {
-      events.push({'id': events.length, 'name':eventName, 'stamps': []})
+      let NextEventId = 0;
+      if (events.length > 0) {
+        NextEventId = events.at(-1).id + 1;
+      }
+      events.push({'id': NextEventId, 'name':eventName, 'stamps': []})
       events = events;
     }
   }
