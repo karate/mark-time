@@ -4,14 +4,19 @@
   let diff = null;
 
   const mark = () => {
-    console.log(event.stamps);
     const now = new Date();
     if (event.stamps.length >= 1) {
       let last_stamp = new Date(event.stamps[event.stamps.length - 1].timestamp);
       diff = now - last_stamp;
     }
+
+    var nextStampId = 0;
+    if (event.stamps.length > 0) {
+      nextStampId = event.stamps.at(-1).id + 1;
+    }
+
     event.stamps.push({
-      'id': event.stamps.length,
+      'id': nextStampId,
       'timestamp': now.getTime(),
       'diff': diff
     });
